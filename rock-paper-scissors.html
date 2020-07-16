@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script>
+            let playerScore=0;
+            let computerScore=0;
+            playerSelection=playerMove()          
+            computerSelection=computerChoice()
+
+            function playerMove(){
+                playerSelection=prompt ('Rock, paper, or scissors?')
+                return playerSelection.toLowerCase();
+            }
+             function computerChoice(){
+              let RockPaperScissors=['rock','paper','scissors'];
+              let computerPlay=RockPaperScissors[Math.floor(Math.random()*RockPaperScissors.length)];
+              console.log(computerPlay)
+              return computerPlay;
+             }
+             
+            function playRound(playerSelection, computerSelection){
+                if (playerSelection=='rock'){
+                    if (computerSelection=='paper'){
+                        computerScore++;
+                        return ('loss, paper beats rock');
+                        }
+                    }
+                if (playerSelection=='rock'){
+                    if (computerSelection=='scissors'){
+                        playerScore++;
+                        return ('win, rock beats scissors');
+                    }
+                }
+                    if (playerSelection=='paper') {
+                        if (computerSelection=='rock'){
+                            playerScore++;
+                            return ('win, paper beats rock');
+                        }
+                    }
+                    if (playerSelection=='scissors'){
+                        if (computerSelection=='paper'){
+                            playerScore++;
+                            return('win, scissors beat paper');
+                           }
+                        }
+                    if (playerSelection=='scissors'){
+                        if (computerSelection=='rock'){
+                            computerScore++;
+                            return('loss, rock beats scissors');
+                           }
+                        }   
+                    if (playerSelection=='paper'){
+                        if (computerSelection=='scissors'){
+                            computerScore++;
+                            return('loss,scissors beats paper');
+                        }
+                    }if (playerSelection===computerSelection){
+                        return ('tie')                    
+                    }
+            }
+           
+           
+            function game(playerSelection,computerSelection){
+                playerSelection=prompt('Rock, paper or scissors?')
+                let game=playRound(playerSelection,computerSelection)
+                console.log('computer score: '+computerScore)
+                console.log('player score: '+ playerScore)
+                return (game)
+            }
+                        
+          
+            console.log(game(playerSelection,computerSelection))
+            
+            for (let i=0;i<5;i++){
+                game()
+            }
+           
+            
+        </script>
+    </body>
+</html>
