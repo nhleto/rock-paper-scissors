@@ -6,84 +6,38 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rowdies">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <script>
-            let playerScore=0;
-            let computerScore=0;
-            playerSelection=playerMove()          
-            computerSelection=computerChoice()
-
-            function playerMove(){
-                playerSelection=prompt ('Rock, paper, or scissors?')
-                return playerSelection.toLowerCase();
-            }
-             function computerChoice(){
-              let RockPaperScissors=['rock','paper','scissors'];
-              let computerPlay=RockPaperScissors[Math.floor(Math.random()*RockPaperScissors.length)];
-              console.log(computerPlay)
-              return computerPlay;
-             }
-             
-            function playRound(playerSelection, computerSelection){
-                if (playerSelection=='rock'){
-                    if (computerSelection=='paper'){
-                        computerScore++;
-                        return ('loss, paper beats rock');
-                        }
-                    }
-                if (playerSelection=='rock'){
-                    if (computerSelection=='scissors'){
-                        playerScore++;
-                        return ('win, rock beats scissors');
-                    }
-                }
-                    if (playerSelection=='paper') {
-                        if (computerSelection=='rock'){
-                            playerScore++;
-                            return ('win, paper beats rock');
-                        }
-                    }
-                    if (playerSelection=='scissors'){
-                        if (computerSelection=='paper'){
-                            playerScore++;
-                            return('win, scissors beat paper');
-                           }
-                        }
-                    if (playerSelection=='scissors'){
-                        if (computerSelection=='rock'){
-                            computerScore++;
-                            return('loss, rock beats scissors');
-                           }
-                        }   
-                    if (playerSelection=='paper'){
-                        if (computerSelection=='scissors'){
-                            computerScore++;
-                            return('loss,scissors beats paper');
-                        }
-                    }if (playerSelection===computerSelection){
-                        return ('tie')                    
-                    }
-            }
-           
-           
-            function game(playerSelection,computerSelection){
-                playerSelection=prompt('Rock, paper or scissors?')
-                let game=playRound(playerSelection,computerSelection)
-                console.log('computer score: '+computerScore)
-                console.log('player score: '+ playerScore)
-                return (game)
-            }
-                        
-          
-            console.log(game(playerSelection,computerSelection))
-            
-            for (let i=0;i<5;i++){
-                game()
-            }
-           
-            
-        </script>
+        <header>
+            <h1>Rock, Paper, Scissors!</h1>
+        </header>
+       
+        <div class="flexBox">
+            <div id="winner">...</div>
+        </div>
+        <div class="score-board">
+            <div class="badge" id="user">User</div>
+            <div class="badge" id="comp">Comp</div>
+            <span id="User-Score">0</span>:<span id="Computer-Score">0</span>
+        </div>
+        <div id="selections">
+            <button class='selection' id="rock">✊</button>
+            <button class='selection' id="paper">✋</button>
+            <button class='selection' id="scissors">✌️</button>
+            <div class='seperator-box'>
+                <div class='seperator'>VS.</div>
+            </div>
+            <div id="computer-selections">
+                <button class='selection' id="comp-rock">✊</button>
+                <button class='selection' id="comp-paper">✋</button>
+                <button class='selection' id="comp-scissors">✌️</button>
+            </div>
+        </div>
+        <div class="announcerBox">
+            <div class="announcer">Rock? Paper? Scissors?</div>
+        </div>
+        <script src="RockPaperScissorsFINAL.js"></script>
     </body>
 </html>
